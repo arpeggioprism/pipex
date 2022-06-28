@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 02:25:14 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/27 04:45:11 by jshin            ###   ########.fr       */
+/*   Created: 2022/06/21 02:25:14 by jshin             #+#    #+#             */
+/*   Updated: 2022/06/29 05:50:13 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
 # include <fcntl.h>
 # include "../libft/libft.h"
 
-void	perror_exit(char c);
+void	error_exit(char c);
 char	*find_path(char *cmd, char **envp);
-int		get_next_line(char **line);
 
 #endif

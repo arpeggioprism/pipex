@@ -6,12 +6,11 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 12:38:12 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/27 20:45:26 by jshin            ###   ########.fr       */
+/*   Updated: 2021/12/08 16:43:36 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static char	**ft_malloc_error(char **tab)
 {
@@ -86,7 +85,6 @@ char	**ft_split(char const *s, char c)
 	tab = (char **)malloc(sizeof(char *) * (nb_strs + 1));
 	if (!tab)
 		return (NULL);
-	printf("nb_strs: %d\n", nb_strs);
 	i = 0;
 	next_str = (char *)s;
 	next_str_len = 0;

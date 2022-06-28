@@ -5,15 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 02:25:22 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/27 07:10:56 by jshin            ###   ########.fr       */
+/*   Created: 2022/06/21 02:25:22 by jshin             #+#    #+#             */
+/*   Updated: 2022/06/29 05:49:01 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-/* Function that will look for the path line inside the environment, will
- split and test each command path and then return the right one. */
 char	*find_path(char *cmd, char **envp)
 {
 	char	**paths;
@@ -43,11 +41,13 @@ char	*find_path(char *cmd, char **envp)
 	return (0);
 }
 
-/* A simple error displaying function. */
-void	perror_exit(char c)
+void	error_exit(char c)
 {
 	if (c == 'c')
-		perror("[Error] Too many or too few arguments");
+	{
+		ft_putstr_fd("[Error] Too many or too few arguments: ", 2);
+		ft_putstr_fd("e.g. ./pipex <file1> <cmd1> <cmd2> <file2>\n", 1);
+	}
 	else if (c == 'p')
 		perror("[Error] Failed to pipe");
 	else if (c == 'f')
@@ -61,32 +61,4 @@ void	perror_exit(char c)
 	else if (c == 'a')
 		perror("[Error] Failed to access");
 	exit(1);
-}
-
-/* Function that will read input from the terminal and return line. */
-int	get_next_line(char **line)
-{
-	char	*buffer;
-	int		i;
-	int		r;
-	char	c;
-
-	i = 0;
-	r = 0;
-	buffer = (char *)malloc(10000);
-	if (!buffer)
-		return (-1);
-	r = read(0, &c, 1);
-	while (r && c != '\n' && c != '\0')
-	{
-		if (c != '\n' && c != '\0')
-			buffer[i] = c;
-		i++;
-		r = read(0, &c, 1);
-	}
-	buffer[i] = '\n';
-	buffer[++i] = '\0';
-	*line = buffer;
-	free(buffer);
-	return (r);
 }
