@@ -1,0 +1,12 @@
+nb_strs: 1
+nb_strs: 6
+nb_strs: 1
+nb_strs: 6
+__CFBundleIdentifier=com.microsoft.VSCode
+a.out
+get_next_line.c
+get_next_line_utils.c
+pipex.c
+post.txt
+pre.txt
+utils.c
