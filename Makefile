@@ -6,7 +6,7 @@
 #    By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/29 01:14:40 by jshin             #+#    #+#              #
-#    Updated: 2022/06/29 05:58:46 by jshin            ###   ########.fr        #
+#    Updated: 2022/06/29 17:46:10 by jshin            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,3 +31,5 @@ fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
+
+.PHONY : all clean fclean re

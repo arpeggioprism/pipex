@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 02:25:22 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/29 05:49:01 by jshin            ###   ########.fr       */
+/*   Updated: 2022/06/29 17:31:33 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*find_path(char *cmd, char **envp)
 	char	**paths;
 	char	*path;
 	int		i;
-	char	*part_path;
+	char	*path_frame;
 
 	i = 0;
 	while (ft_strnstr(envp[i], "PATH", 4) == 0)
@@ -26,9 +26,9 @@ char	*find_path(char *cmd, char **envp)
 	i = 0;
 	while (paths[i])
 	{
-		part_path = ft_strjoin(paths[i], "/");
-		path = ft_strjoin(part_path, cmd);
-		free(part_path);
+		path_frame = ft_strjoin(paths[i], "/");
+		path = ft_strjoin(path_frame, cmd);
+		free(path_frame);
 		if (access(path, F_OK) == 0)
 			return (path);
 		free(path);
