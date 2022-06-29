@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:10:14 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/29 20:59:55 by jshin            ###   ########.fr       */
+/*   Updated: 2022/06/30 01:19:23 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	parent_process(char **argv, char **envp, int *fd)
 	close(fd[1]);
 	if (dup2(fd[0], STDIN_FILENO) == -1)
 		error_exit('d');
-	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0666);
+	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fileout == -1)
 		error_exit('o');
 	if (dup2(fileout, STDOUT_FILENO) == -1)
