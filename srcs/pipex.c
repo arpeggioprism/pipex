@@ -6,7 +6,7 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:10:14 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/30 17:20:28 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/19 02:46:05 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv, char **envp)
 		error_exit('f');
 	else if (pid == 0)
 		child_process(argv, envp, fd);
-	waitpid(pid, NULL, 0);
+	waitpid(pid, NULL, WNOWAIT);
 	parent_process(argv, envp, fd);
 	return (0);
 }
