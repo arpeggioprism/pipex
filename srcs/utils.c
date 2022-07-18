@@ -6,11 +6,21 @@
 /*   By: jshin <jshin@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 02:25:22 by jshin             #+#    #+#             */
-/*   Updated: 2022/06/29 17:31:33 by jshin            ###   ########.fr       */
+/*   Updated: 2022/07/19 03:14:40 by jshin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+
+void	free_machine(char **paths)
+{
+	int	i;
+
+	i = 0;
+	while (paths[i])
+		free(paths[i++]);
+	free(paths);
+}
 
 char	*find_path(char *cmd, char **envp)
 {
@@ -30,14 +40,14 @@ char	*find_path(char *cmd, char **envp)
 		path = ft_strjoin(path_frame, cmd);
 		free(path_frame);
 		if (access(path, F_OK) == 0)
+		{
+			free_machine(paths);
 			return (path);
+		}
 		free(path);
 		i++;
 	}
-	i = 0;
-	while (paths[i])
-		free(paths[i++]);
-	free(paths);
+	free_machine(paths);
 	return (0);
 }
 
